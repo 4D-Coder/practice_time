@@ -7,7 +7,7 @@ def staircase(n)
       collection.concat("#")
       justified = collection.rjust(n)
 
-      p justified
+      puts justified
   end
 end
 
