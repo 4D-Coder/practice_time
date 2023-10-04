@@ -1,3 +1,5 @@
+# use `conda env create -f environment.yml` to recreate this exact same environment.
+
 name: code_challenges
 channels:
   - defaults
