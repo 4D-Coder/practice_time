@@ -8,23 +8,7 @@ class ListNode:
     self.next = next
 
 class Solution:
-  def toSortedList(self, values: List[int]) -> Optional[ListNode]:
-    if not values:
-      return None
-
-    head = ListNode(values[0])
-    current_node = head
-
-    for i in values[1:]:
-      current_node.next = ListNode(i)
-      current_node = current_node.next
-
-      return head
-
   def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-    list1 = self.toSortedList(list1)
-    list2 = self.toSortedList(list2)
-
     dummy = ListNode()
     current = dummy
 
