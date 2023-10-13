@@ -7,6 +7,12 @@ class ListNode:
     self.val = val
     self.next = next
 
+  # Definition for testing object value, bypassing object identity during `isEqual` testing assertions
+  # def __eq__(self, other):
+  #     if not other or not isinstance(other, ListNode):
+  #         return False
+  #     return self.val == other.val and self.next == other.next
+
 class Solution:
   def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
     dummy = ListNode()
