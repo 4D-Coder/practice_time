@@ -1,17 +1,19 @@
 from typing import List
-import ipdb
 
 class Solution:
-  def maxProfit(self, prices: List[int]) -> int:
-    profit_tracker = []
-    for i in prices:
-      sell_prices = prices.index(i) + 1
-      if len(prices) == 1:
-        return 0
-      else:
-        for e in prices[sell_prices:]:
-          profit = e - i
-          profit_tracker.append(profit)
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:  # Check if the prices list is empty
+            return 0
 
-    max_profit = max(profit_tracker)
-    return 0 if max_profit <= 0 else max_profit
+        min_price = prices[0]  # Initialize the minimum price
+        max_profit = 0  # Initialize the maximum profit
+        
+        for price in prices:
+            if price < min_price:
+                min_price = price  # Update the minimum price if a lower price is encountered
+            else:
+                profit = price - min_price
+                if profit > max_profit:
+                    max_profit = profit  # Update the maximum profit if a better profit is found
+
+        return max_profit
