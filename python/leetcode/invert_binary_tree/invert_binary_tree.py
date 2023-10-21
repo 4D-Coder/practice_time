@@ -1,7 +1,6 @@
 import ipdb
 from typing import Optional, List
 from collections import deque
-import json
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -11,14 +10,7 @@ class TreeNode:
     self.right = right
 
   # def __str__(self):
-  #   return json.dumps(self.to_dict())
-
-  # def to_dict(self):
-  #   return {
-  #     "val": self.val,
-  #     "left": self.left.val if self.left else None,
-  #     "right": self.right.val if self.right else None,
-  #   }
+    # return "<TreeNode> val:{}".format(self.val)
 
 class Solution:
   def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -38,21 +30,6 @@ class Solution:
         queue.append(current_node.right)
 
     return root
-
-  def toList(self, root: Optional[TreeNode]) -> List[int]:
-    if not root:
-      return []
-    
-    queue = deque([root])
-    list = []
-
-    while queue:
-      current_node = queue.popleft()
-      list.append(current_node.val)
-      queue.append(current_node.left) if current_node.left else None
-      queue.append(current_node.right) if current_node.right else None
-
-    return list
 
   def toBinaryTree(self, values: List[int]) -> Optional[TreeNode]:
     if not values:
