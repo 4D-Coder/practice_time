@@ -9,9 +9,27 @@ class TreeNode:
     self.left = left
     self.right = right
 
+  # def __str__(self):
+    # return "<TreeNode> val:{}".format(self.val)
+
 class Solution:
   def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-    ipdb.set_trace()
+    if not root:
+      return None
+
+    queue = deque([root])
+    while queue:
+      current_node = queue.popleft()
+
+      current_node.left, current_node.right = current_node.right, current_node.left
+
+      if current_node.left:
+        queue.append(current_node.left)
+
+      if current_node.right:
+        queue.append(current_node.right)
+
+    return root
 
   def toBinaryTree(self, values: List[int]) -> Optional[TreeNode]:
     if not values:
